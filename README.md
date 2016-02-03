@@ -33,15 +33,43 @@ upyun for laravel5 ，2015-02-03
 	use App\Http\Controllers\Upload\ImgController;//使用统一上传接口
 	/*
 	*保存数据，需要验证提交数据是否正确，有图片上传则调用统一上传接口上传文件
+	*thumbnail是input file控件名称，假设也是数据库字段名称
 	*/
 	public function store(StoreInfoRequest $InfoRequest,ImgController $imgController){
+		$data = array(
+			/*
+			需要保存的数据
+			*/
+		);
 		$file = $imgController->uploadImg('thumbnail','',$InfoRequest);
 		if($file){
 			$data['thumbnail'] = $file;
 		}
 		/*
 		
-		业务逻辑代码
+		业务逻辑代码，如保存$data到表
+		
+		*/
+	}
+	public function update(StoreInfoRequest $InfoRequest,ImgController $imgController)
+	{
+		$id = intval($InfoRequest->input('id'));
+		$info = Info::find($id);
+		$data = array(
+			/*
+			需要更新的数据
+			*/
+		);
+		$file = $imgController->uploadImg('thumbnail','',$InfoRequest);
+		if($file){
+			$data['thumbnail'] = $file;
+			if($info->thumbnail){
+				$imgController->unlinkfile($info->thumbnail);
+			}
+		}
+		/*
+		
+		业务逻辑代码，如更新$data到表
 		
 		*/
 	}

@@ -26,5 +26,24 @@ upyun for laravel5
 	UPYUN_USERNAME=空间的授权用户名
 
 	UPYUN_PASSWORD=授权用户密码
+	
+六、上传示例
+	
+	use App\Http\Requests\StoreInfoRequest;//验证提交数据完整性文件
+	use App\Http\Controllers\Upload\ImgController;//使用统一上传接口
+	/*
+	*保存数据，需要验证提交数据是否正确，有图片上传则调用统一上传接口上传文件
+	*/
+	public function store(StoreInfoRequest $InfoRequest,ImgController $imgController){
+		$file = $imgController->uploadImg('thumbnail','',$InfoRequest);
+		if($file){
+			$data['thumbnail'] = $file;
+		}
+		/*
+		
+		业务逻辑代码
+		
+		*/
+	}
 
 2015-02-03

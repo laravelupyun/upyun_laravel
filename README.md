@@ -28,20 +28,19 @@ upyun for laravel5 ，2015-02-03
 	UPYUN_PASSWORD=授权用户密码
 	
 六、上传示例
-	
-	use App\Http\Requests\StoreInfoRequest;//验证提交数据完整性文件
+	use Illuminate\Http\Request;
 	use App\Http\Controllers\Upload\ImgController;//使用统一上传接口
 	/*
 	*保存数据，需要验证提交数据是否正确，有图片上传则调用统一上传接口上传文件
 	*thumbnail是input file控件名称，假设也是数据库字段名称
 	*/
-	public function store(StoreInfoRequest $InfoRequest,ImgController $imgController){
+	public function store(Request $request,ImgController $imgController){
 		$data = array(
 			/*
 			需要保存的数据
 			*/
 		);
-		$file = $imgController->uploadImg('thumbnail','',$InfoRequest);
+		$file = $imgController->uploadImg('thumbnail','',$request);
 		if($file){
 			$data['thumbnail'] = $file;
 		}
@@ -51,7 +50,7 @@ upyun for laravel5 ，2015-02-03
 		
 		*/
 	}
-	public function update(StoreInfoRequest $InfoRequest,ImgController $imgController)
+	public function update(Request $request,ImgController $imgController)
 	{
 		$id = intval($InfoRequest->input('id'));
 		$info = Info::find($id);//从表中取出原数据
@@ -60,7 +59,7 @@ upyun for laravel5 ，2015-02-03
 			需要更新的数据
 			*/
 		);
-		$file = $imgController->uploadImg('thumbnail','',$InfoRequest);
+		$file = $imgController->uploadImg('thumbnail','',$request);
 		if($file){//如果上传新图片成功，保存新数据
 			$data['thumbnail'] = $file;
 			if($info->thumbnail){//原数据中存在图片，则删除原数据图片

@@ -25,6 +25,7 @@ upyun for laravel5
 	UPYUN_PASSWORD=授权用户密码
 	
 六、上传示例
+
 	use Illuminate\Http\Request;
 	use App\Http\Controllers\Upload\ImgController;//使用统一上传接口
 	/*

@@ -1,4 +1,4 @@
-# upyun_laravel
+# upyun_laravel5
 upyun for laravel5
 
 一、修改composer.json文件

@@ -54,16 +54,16 @@ upyun for laravel5 ，2015-02-03
 	public function update(StoreInfoRequest $InfoRequest,ImgController $imgController)
 	{
 		$id = intval($InfoRequest->input('id'));
-		$info = Info::find($id);
+		$info = Info::find($id);//从表中取出原数据
 		$data = array(
 			/*
 			需要更新的数据
 			*/
 		);
 		$file = $imgController->uploadImg('thumbnail','',$InfoRequest);
-		if($file){
+		if($file){//如果上传新图片成功，保存新数据
 			$data['thumbnail'] = $file;
-			if($info->thumbnail){
+			if($info->thumbnail){//原数据中存在图片，则删除原数据图片
 				$imgController->unlinkfile($info->thumbnail);
 			}
 		}

@@ -14,7 +14,7 @@ upyun for laravel5
 
 三、执行php composer.phar install , 或者composer install
 
-四、参考ImgController.php写上传文件接口
+四、下载ImgController.php并放到app/Http/Controllers/Upload/目录下，参考ImgController.php写上传文件接口
 
 五、在.env文件增加又拍云文件配置
 

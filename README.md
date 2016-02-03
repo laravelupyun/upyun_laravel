@@ -4,15 +4,12 @@ upyun for laravel5 ，2015-02-03
 一、修改composer.json文件
   在autoload-dev的classmap中添加app/Libs/Upyun.php，如下：
   
-	"autoload-dev": {
-		"classmap": [
-			"database"
-		],
-		"classmap": [
-			"tests/TestCase.php",
-			"app/Libs/Upyun.php"
-		]
-	},
+    "autoload-dev": {
+        "classmap": [
+            "tests/TestCase.php",
+            "app/Libs/Upyun.php"
+        ]
+    },
 二、在app目录下添加Libs文件夹，下载Upyun.php文件放到该文件夹下
 
 三、执行php composer.phar install , 或者composer install

@@ -20,8 +20,11 @@ upyun for laravel5
 四、参考ImgController.php写上传文件接口
 
 五、在.env文件增加又拍云文件配置
-UPYUN_BUCKETNAME=又拍云空间名，在又拍云后台管理中添加
-UPYUN_USERNAME=空间的授权用户名
-UPYUN_PASSWORD=授权用户密码
+
+	UPYUN_BUCKETNAME=又拍云空间名，在又拍云后台管理中添加
+
+	UPYUN_USERNAME=空间的授权用户名
+
+	UPYUN_PASSWORD=授权用户密码
 
 2015-02-03

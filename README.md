@@ -1,5 +1,5 @@
 # upyun_laravel
-upyun for laravel5 2015-02-03
+upyun for laravel5 ，2015-02-03
 
 一、修改composer.json文件
   在autoload-dev的classmap中添加app/Libs/Upyun.php，如下：
